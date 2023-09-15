@@ -1,42 +1,196 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body{
+  width: 100vw;
+  background: #e5eaf7;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* App */
+.main{
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+}
+
+/* InterestForm */
+.form-wrapper{
+  width: 100%;
+  margin-top: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px;
+}
+
+.form-wrapper .form-heading{
+  font-size: 30px;
+  font-weight: 700;
+  color:#000000d0;
+  margin: 10px 0 4px;
+}
+
+.form-wrapper .form-description{
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.form-wrapper form{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 30px 0;
+}
+
+.form-wrapper form .input-wrapper{
+  width: 60%;
+}
+
+.form-wrapper form .input-div{
+  padding: 10px;
+}
+
+.form-wrapper form .input-div label{
+  display: block;
+  margin: 2px 0;
+}
+
+.form-wrapper form .input-div .label-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+form .label-wrapper input{
+  outline: none;
+  border: 2px solid rgb(203, 201, 201);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+form .label-wrapper input:focus{
+  border: 2px solid rgba(0, 0, 255, 0.5);
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #e2e7f4;
+  height: 0.3rem;
+  border-radius: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -5px; 
+  cursor: pointer;
+  background-color: #2680eb;
+  height: 1rem;
+  width: 1rem;    
+  border-radius: 50%;
+}
+
+.form-wrapper form .form-card{
+  width: 30%;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background: hsla(240, 29%, 6%, 1);
+background: linear-gradient(180deg, hsla(240, 29%, 6%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+background: -moz-linear-gradient(180deg, rgb(96, 96, 181) 0%, hsla(0, 0%, 100%, 1) 100%);
+background: -webkit-linear-gradient(90deg, rgb(99 99 255) 0%, rgb(204 211 255) 100%);
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0B0B14", endColorstr="#FFFFFF", GradientType=1 );
+}
+
+form .form-card .card-heading{
+  color: #484848;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 8px 0;
+}
+
+form .form-card .card-details .card-emi p{
+  font-size: 16px;
+  font-weight: 500;
+  margin: 20px 0 5px;
+}
+
+
+form .form-card .card-details h2{
+  font-size: 40px;
+  font-weight: 500;
+  color: #000000d5;
+  margin-bottom: 10px;
+}
+
+.form-card .card-details .card-emi{
+  border-bottom: 2px solid #000000a1;
+}
+
+.form-card .card-interest-info{
+  margin: 10px;
+}
+
+.form-card .card-interest-info ul{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.form-card .card-interest-info li h4{
+  margin: 0;
+}
+
+/* Month Table */
+.month-table table{
+  margin: 30px auto;
+  width: 97%;
+  border-collapse: collapse;
+  cursor: pointer;
+}
+
+.month-table table td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.month-table table tr:hover {
+  background: #267feb2b;
+}
+
+@media (max-width: 1050px) {
+  .form-wrapper form .input-wrapper {
+    width: 50%;
+}
+.form-wrapper form .form-card {
+  width: 43%;
+}
+}
+
+@media (max-width: 750px) {
+  body{
+    width: auto;
   }
-  to {
-    transform: rotate(360deg);
+  .form-wrapper form {
+    flex-direction: column-reverse;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .form-wrapper form .input-wrapper {
+    width: 100%;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .form-wrapper form .form-card {
+    width: 85%;
+    margin-bottom: 20px;
+  }
 }
