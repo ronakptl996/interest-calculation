@@ -2,57 +2,17 @@ import React, { useState, useEffect } from "react";
 import InterestMonth from "./InterestMonth";
 import InterestChart from "./InterestChart";
 import InputField from "./InputField";
+import { useInterest } from "../contexts/InterestContext";
 
-const InterestForm = () => {
+const InterestCalculator = () => {
   const [principalAmount, setPrincipalAmount] = useState(10000);
   const [interest, setInterest] = useState(8);
   const [tenure, setTenure] = useState(6);
-  const [calculateInterest, setCalculateInterest] = useState({
-    interest: 0,
-    total: 0,
-    emiDetails: [],
-  });
 
-  function calculateEMI(principalAmount, annualInterestRate, loanTenure) {
-    const monthlyInterestRate = annualInterestRate / 12 / 100;
-    const emi =
-      (principalAmount * monthlyInterestRate) /
-      (1 - Math.pow(1 + monthlyInterestRate, -loanTenure));
-
-    // setCalculateInterest({ emi: emi });
-    let remainingLoanBalance = principalAmount;
-    const emiDetails = [];
-
-    for (let month = 1; month <= loanTenure; month++) {
-      const interestPayment = remainingLoanBalance * monthlyInterestRate;
-      const principalPayment = emi - interestPayment;
-      remainingLoanBalance -= principalPayment;
-
-      emiDetails.push({
-        month,
-        emi,
-        interestPayment,
-        principalPayment,
-        remainingLoanBalance,
-      });
-    }
-
-    return emiDetails;
-  }
+  const { calculateEMI, calculateInterest } = useInterest();
 
   useEffect(() => {
-    const emiDetails = calculateEMI(principalAmount, interest, tenure);
-
-    let interestPerMonth =
-      emiDetails.length && emiDetails[0].emi * tenure - principalAmount;
-    let totalPayableAmount = (interestPerMonth + principalAmount).toFixed(2);
-
-    setCalculateInterest((prevState) => ({
-      ...prevState,
-      total: Number(totalPayableAmount),
-      interest: Number(interestPerMonth.toFixed(2)),
-      emiDetails,
-    }));
+    calculateEMI(principalAmount, interest, tenure);
   }, [principalAmount, interest, tenure]);
 
   return (
@@ -128,7 +88,7 @@ const InterestForm = () => {
               />
             </div>
           </form>
-          <InterestMonth emiDetails={calculateInterest.emiDetails} />
+          <InterestMonth />
         </div>
         <div className="form-rigth">
           <div className="form-card">
@@ -158,7 +118,7 @@ const InterestForm = () => {
             </div>
           </div>
           <div className="chart-wrapper">
-            <InterestChart calculateInterest={calculateInterest} />
+            <InterestChart />
           </div>
         </div>
       </div>
@@ -166,4 +126,4 @@ const InterestForm = () => {
   );
 };
 
-export default InterestForm;
+export default InterestCalculator;

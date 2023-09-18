@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
+import { useInterest } from "../contexts/InterestContext";
 
-const InterestMonth = ({ emiDetails }) => {
-  useEffect(() => {}, [emiDetails]);
+const InterestMonth = () => {
+  const { calculateInterest } = useInterest();
+  useEffect(() => {}, [calculateInterest]);
 
   return (
     <div className="month-table">
@@ -15,8 +17,8 @@ const InterestMonth = ({ emiDetails }) => {
           </tr>
         </thead>
         <tbody>
-          {emiDetails &&
-            emiDetails.map((val, index) => (
+          {calculateInterest.emiDetails &&
+            calculateInterest.emiDetails.map((val, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{val.interestPayment.toFixed(2)}</td>
