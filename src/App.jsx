@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import InterestCalculator from "./components/InterestCalculator";
 import { InterestProvider } from "./contexts/InterestContext";
@@ -12,7 +12,6 @@ function App() {
       (principalAmount * monthlyInterestRate) /
       (1 - Math.pow(1 + monthlyInterestRate, -loanTenure));
 
-    // setCalculateInterest({ emi: emi });
     let remainingLoanBalance = principalAmount;
     const emiDetails = [];
 
@@ -40,7 +39,6 @@ function App() {
       total: Number(totalPayableAmount),
       interest: Number(interestPerMonth.toFixed(2)),
     }));
-    return emiDetails;
   };
 
   return (

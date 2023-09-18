@@ -29,16 +29,19 @@ body{
   padding: 20px;
 }
 
-.form-wrapper .form-heading{
+.form-wrapper .form-heading {
+  margin-left: 20px;
+  color: #000000cf;
+}
+
+.form-wrapper .form-heading h1{
   font-size: 30px;
   font-weight: 700;
-  color:#000000d0;
   margin: 10px 0 4px;
 }
 
 .form-wrapper .form-description{
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 15px;
 }
 
 .form-wrapper .form-inner{
