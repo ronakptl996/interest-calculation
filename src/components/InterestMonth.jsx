@@ -1,32 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const InterestMonth = ({ interest, tenure, principleAmount }) => {
+const InterestMonth = ({ emiDetails }) => {
+  useEffect(() => {}, [emiDetails]);
+
   return (
     <div className="month-table">
       <table>
-        <tr>
-          <th>Month</th>
-          <th>Interest</th>
-          <th>Total Interest</th>
-          <th>Balance</th>
-        </tr>
-        {[...Array(tenure)].map((elementInArray, index) => (
-          <tr key={index}>
-            <td>{index + 1}</td>
-            <td>{(interest / tenure).toFixed(2)}</td>
-            <td>{((interest / tenure) * (index + 1)).toFixed(2)}</td>
-            <td>
-              {principleAmount +
-                +((interest / tenure) * (index + 1)).toFixed(2)}
-            </td>
-            {/* <div className="" key={index}>
-              {" "}
-              Whatever needs to be rendered repeatedly... {interest /
-                tenure}{" "}
-              {(interest / tenure) * (index + 1)}
-            </div> */}
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Interest Payment</th>
+            <th>Principal Payment</th>
+            <th>Remaining Balance</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {emiDetails &&
+            emiDetails.map((val, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{val.interestPayment.toFixed(2)}</td>
+                <td>{val.principalPayment.toFixed(2)}</td>
+                <td>{val.remainingLoanBalance.toFixed(2)}</td>
+              </tr>
+            ))}
+        </tbody>
       </table>
     </div>
   );

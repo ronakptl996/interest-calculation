@@ -3,11 +3,11 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
 
 body{
-  width: 100vw;
   background: #e5eaf7;
 }
 
@@ -41,42 +41,46 @@ body{
   margin-bottom: 10px;
 }
 
-.form-wrapper form{
+.form-wrapper .form-inner{
   display: flex;
   justify-content: space-around;
-  align-items: center;
   width: 100%;
   margin: 30px 0;
 }
 
-.form-wrapper form .input-wrapper{
+.form-wrapper .form-inner .input-wrapper{
   width: 60%;
 }
 
-.form-wrapper form .input-div{
+.form-wrapper .form-inner .form-rigth{
+  padding: 20px;
+  width: 35%;
+}
+
+.form-wrapper .form-inner .input-div{
   padding: 10px;
 }
 
-.form-wrapper form .input-div label{
+.form-wrapper .form-inner .input-div label{
   display: block;
   margin: 2px 0;
 }
 
-.form-wrapper form .input-div .label-wrapper{
+.form-wrapper .form-inner .input-div .label-wrapper{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 
-form .label-wrapper input{
+.form-inner .label-wrapper input{
   outline: none;
   border: 2px solid rgb(203, 201, 201);
   border-radius: 5px;
   padding: 10px;
 }
 
-form .label-wrapper input:focus{
+.form-inner .label-wrapper input:focus{
   border: 2px solid rgba(0, 0, 255, 0.5);
 }
 
@@ -102,40 +106,33 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
 }
 
-.form-wrapper form .form-card{
-  width: 30%;
+.form-wrapper .form-inner .form-card{
   padding: 20px 30px;
   border-radius: 10px;
-  background: hsla(240, 29%, 6%, 1);
-background: linear-gradient(180deg, hsla(240, 29%, 6%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
-background: -moz-linear-gradient(180deg, rgb(96, 96, 181) 0%, hsla(0, 0%, 100%, 1) 100%);
-background: -webkit-linear-gradient(90deg, rgb(99 99 255) 0%, rgb(204 211 255) 100%);
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0B0B14", endColorstr="#FFFFFF", GradientType=1 );
+  background: #2D4356;
 }
 
-form .form-card .card-heading{
-  color: #484848;
-  font-size: 1.5rem;
+.form-inner .form-rigth .form-card .card-heading{
+  color: #fff;
+  font-size: 1.8rem;
   font-weight: 500;
   margin: 8px 0;
 }
 
-form .form-card .card-details .card-emi p{
+.form-card .card-details .card-emi{
+  color: #ffffffcc;
+  border-bottom: 2px solid #ffffff8f;
+}
+
+.form-rigth .form-card .card-details .card-emi p{
   font-size: 16px;
-  font-weight: 500;
   margin: 20px 0 5px;
 }
 
 
-form .form-card .card-details h2{
-  font-size: 40px;
-  font-weight: 500;
-  color: #000000d5;
+.form-rigth .form-card .card-details h2{
+  font-size: 34px;
   margin-bottom: 10px;
-}
-
-.form-card .card-details .card-emi{
-  border-bottom: 2px solid #000000a1;
 }
 
 .form-card .card-interest-info{
@@ -146,10 +143,12 @@ form .form-card .card-details h2{
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  color: #ffffffc9;
 }
 
 .form-card .card-interest-info li h4{
   margin: 0;
+  font-weight: 500;
 }
 
 /* Month Table */
@@ -161,36 +160,28 @@ form .form-card .card-details h2{
 }
 
 .month-table table td, th {
-  border: 1px solid #dddddd;
+  border: 2px solid #2d43564b;
   text-align: left;
   padding: 8px;
 }
 
-.month-table table tr:hover {
-  background: #267feb2b;
+.month-table table tbody tr:hover {
+  background: #267feb7e;
 }
+
 
 @media (max-width: 1050px) {
-  .form-wrapper form .input-wrapper {
-    width: 50%;
-}
-.form-wrapper form .form-card {
-  width: 43%;
-}
-}
-
-@media (max-width: 750px) {
   body{
     width: auto;
   }
-  .form-wrapper form {
+  .form-wrapper .form-inner {
     flex-direction: column-reverse;
   }
-  .form-wrapper form .input-wrapper {
+  .form-wrapper .form-inner .input-wrapper {
     width: 100%;
   }
-  .form-wrapper form .form-card {
-    width: 85%;
+  .form-wrapper .form-inner .form-rigth {
+    width: 100%;
     margin-bottom: 20px;
   }
 }
