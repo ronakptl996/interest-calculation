@@ -19,7 +19,7 @@ const InterestCalculator = () => {
       <div className="form-inner">
         <div className="input-wrapper">
           <InterestForm />
-          <InterestMonth />
+          {calculateInterest.emiDetails && <InterestMonth />}
         </div>
         <div className="form-rigth">
           <div className="form-card">

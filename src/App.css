@@ -155,8 +155,12 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 /* Month Table */
-.month-table table{
+.month-table{
+  position: relative;
   margin: 30px auto;
+}
+
+.month-table table{
   width: 97%;
   border-collapse: collapse;
   cursor: pointer;
@@ -170,6 +174,21 @@ input[type="range"]::-webkit-slider-thumb {
 
 .month-table table tbody tr:hover {
   background: #267feb7e;
+}
+
+.month-table .more-btn{
+  position: absolute;
+  right: 0;
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  color: #2680eb;
+  cursor: pointer;
+}
+
+.month-table .more-btn:hover span{
+  color: #0f488d;
+  border-bottom: 1px solid;
 }
 
 
